@@ -1,20 +1,16 @@
-package domain.posts;
+package com.example.web.springboot.domain.posts;
 
-//import  com.example.web.springboot.domain.BaseTimeEntity;
-import com.sun.javafx.beans.IDProperty;
-//import jdk.nashorn.internal.objects.annotations.Getter;
+import com.example.web.springboot.domain.posts.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
-
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts  extends BaseTimeEntity  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +21,6 @@ public class Posts {
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
-
     private String author;
 
     @Builder
@@ -34,10 +29,13 @@ public class Posts {
         this.content = content;
         this.author = author;
     }
-    // public void update(String title, String content) {
-    //this.title = title;
-    }
+     public void update(String title, String content) {
+         this.title = title;
+         this.content = content;
 
-
+     }
 }
+
+
+
 
